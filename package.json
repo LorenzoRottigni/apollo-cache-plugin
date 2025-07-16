@@ -1,0 +1,8 @@
+{
+  "name": "apollo-cache-plugin",
+  "packageManager": "yarn@4.6.0",
+  "dependencies": {
+    "@apollo/server": "^4.12.2",
+    "ioredis": "^5.6.1"
+  }
+}
