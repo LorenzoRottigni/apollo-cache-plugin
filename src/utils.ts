@@ -1,5 +1,4 @@
 import { GraphQLResponse, GraphQLResponseBody } from '@apollo/server/dist/esm/externalTypes/graphql'
-import { LanguageCode } from '@vendure/core'
 import { BaseContext, GraphQLRequestContext, HeaderMap } from '@apollo/server'
 
 export const response = <T>(
@@ -11,9 +10,9 @@ export const response = <T>(
   http: { status, headers },
 })
 
-export const getLocale = (ctx: GraphQLRequestContext<BaseContext>): LanguageCode | 'default' =>
+export const getLocale = (ctx: GraphQLRequestContext<BaseContext>): string | 'default' =>
   ctx.request.http?.search
-    ? (new URLSearchParams(ctx.request.http.search).get('languageCode') as LanguageCode) ||
+    ? (new URLSearchParams(ctx.request.http.search).get('languageCode')) ||
       'default'
     : 'default'
 
